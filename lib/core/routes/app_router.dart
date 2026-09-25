@@ -1,9 +1,10 @@
-import 'package:eraasoft_project/core/di/service_locator.dart';
-import 'package:eraasoft_project/features/register/peresentation/cubit/register_cubit.dart';
-import 'package:eraasoft_project/features/register/peresentation/ui/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/login/peresentation/ui/login_screen.dart';
+import '../../features/register/peresentation/cubit/register_cubit.dart';
+import '../../features/register/peresentation/ui/screens/register_screen.dart';
+import '../di/service_locator.dart';
 import 'app_routes.dart';
 
 class AppRouter {
@@ -15,6 +16,11 @@ class AppRouter {
             create: (context) => RegisterCubit(getIt()),
             child: const RegisterScreen(),
           ),
+        );
+
+      case AppRoutes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
         );
 
       default:
